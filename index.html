@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UFC Quiz — Насколько ты шаришь?</title>
+    <meta name="description" content="Пройди быстрый UFC-квиз из 5 вопросов и узнай свой уровень!" />
+
+    <!-- Шрифты (необязательно, для яркой типографики) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Декоративный фон / сетка -->
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <header class="header">
+      <div class="brand">
+        <span class="brand__tag">UFC</span>
+        <h1 class="brand__title">QUIZ</h1>
+      </div>
+      <p class="subtitle">Проверь, насколько ты разбираешься в октагоне 🥊</p>
+    </header>
+
+    <main class="container">
+      <!-- Прогресс-бар -->
+      <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div class="progress__bar" id="progressBar"></div>
+        <div class="progress__label" id="progressLabel">Вопрос 1 из 5</div>
+      </div>
+
+      <!-- Карточка вопроса -->
+      <section class="card" id="quizCard" aria-live="polite">
+        <h2 class="question" id="questionText">Загрузка вопроса…</h2>
+        <form class="answers" id="answers" aria-labelledby="questionText"></form>
+        <div class="controls">
+          <button class="btn btn-primary" id="nextBtn" type="button" disabled>Далее →</button>
+        </div>
+      </section>
+
+      <!-- Результаты (изначально скрыты) -->
+      <section class="card card--result" id="result" hidden>
+        <h2 class="result__title">Твой результат</h2>
+        <p class="result__score" id="resultScore">0/5</p>
+        <p class="result__badge" id="resultBadge">Новичок</p>
+        <p class="result__text">Отличная попытка! Попробуй ещё раз или поделиcь с друзьями.</p>
+        <div class="controls">
+          <button class="btn btn-primary" id="shareBtn" type="button">Поделиться результатом</button>
+          <button class="btn" id="restartBtn" type="button">Пройти ещё раз</button>
+        </div>
+        <p class="hint">Где-то на сайте спрятан бонус. Подсказка: присмотрись к октагону внизу…</p>
+      </section>
+    </main>
+
+    <!-- Плавающий октагон (пасхалка с бонусом) -->
+    <button class="octagon" id="octagon" aria-label="Секретный октагон" title="Tap x3">
+      <span class="octagon__glow"></span>
+      <span class="octagon__text">U</span>
+    </button>
+
+    <!-- Модалка с бонусом -->
+    <div class="modal" id="bonusModal" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal__backdrop" id="modalBackdrop"></div>
+      <div class="modal__dialog" role="document">
+        <button class="modal__close" id="modalClose" aria-label="Закрыть">×</button>
+        <h3 class="modal__title">Бонус найден! 🎁</h3>
+        <p class="modal__desc">Поздравляем! Лови бонус‑код:</p>
+        <div class="bonus">
+          <code class="bonus__code" id="bonusCode">UFC-BONUS-2025</code>
+          <button class="btn btn-small" id="copyBonusBtn" type="button">Скопировать</button>
+        </div>
+        <p class="modal__note">Не распространяй его всем подряд 😉</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <small>Сделано с уважением к спорту. Неофициальный фан-проект.</small>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+  </body>
+  </html>
+
+
+
+
+
